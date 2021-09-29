@@ -85,3 +85,8 @@ div.calculator {
 .num-btn {
   background-color: var(--main-pal-lt);
 }
+.equal-btn {
+  background-color: var(--main-pal-blue);
+  color: #e9e7ec;
+  font-size: 28px;
+}
