@@ -1,14 +1,16 @@
 const topDisplay = document.querySelector("#top-display");
 const botDisplay = document.querySelector("#bot-display");
 const numBtns = document.querySelectorAll(".num-btn");
-const opBtn = document.querySelector(".op-btn");
+const opBtns = document.querySelectorAll(".op-btn");
+const equalBtn = document.querySelector(".equal-btn");
 console.log(numBtns);
 
 botDisplay.textContent = "";
+topDisplay.textContent = "";
 
-let firstVal;
-let secondVal;
-
+let a;
+let b;
+let currentOp;
 const operator = {
   "+": (a, b) => a + b,
   "-": (a, b) => a - b,
@@ -17,8 +19,15 @@ const operator = {
 };
 
 //operate
-const operate = (operator, a, b) => {
-  return operator(a, b);
+const operate = (operator, num1, num2) => {
+  num1 = a;
+  console.log(a);
+  num2 = b;
+  console.log(b);
+  key = String(currentOp);
+  console.log(currentOp);
+  let result = operator[key](num1, num2);
+  return result;
 };
 //positve/negative
 const posNeg = (a) => {
@@ -31,17 +40,44 @@ const percent = (a) => {
   return a;
 };
 
-function displayValue(a) {}
+function storeFirstVal() {
+  a = Number(botDisplay.textContent);
+}
+function storeSecondVal() {
+  b = Number(botDisplay.textContent);
+}
 
+function clearBotDisplay() {
+  botDisplay.textContent = "";
+}
+function clearFirstVal() {
+  a = "";
+}
 //clear
 
 //delete
 
 //equals
+equalBtn.addEventListener("click", () => {
+  return operate(operator[currentOp], a, b);
+});
+
 numBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     console.log(btn);
-    firstVal = btn.textContent;
-    botDisplay.textContent += firstVal;
+    botDisplay.textContent += btn.value;
+    if (a !== "") {
+      storeSecondVal();
+      console.log(currentOp);
+    }
+  });
+});
+
+opBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    storeFirstVal();
+    clearBotDisplay();
+    topDisplay.textContent += a + btn.dataset.op;
+    currentOp = String(btn.dataset.op);
   });
 });
