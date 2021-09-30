@@ -3,31 +3,37 @@ const botDisplay = document.querySelector("#bot-display");
 const numBtns = document.querySelectorAll(".num-btn");
 const opBtns = document.querySelectorAll(".op-btn");
 const equalBtn = document.querySelector(".equal-btn");
-console.log(numBtns);
+const clearBtn = document.querySelector("#clr-btn");
 
 botDisplay.textContent = "";
 topDisplay.textContent = "";
 
 let a;
 let b;
-let currentOp;
-const operator = {
+let operator;
+const operators = {
   "+": (a, b) => a + b,
   "-": (a, b) => a - b,
   "×": (a, b) => a * b,
   "/": (a, b) => a / b,
 };
 
-//operate
-const operate = (operator, num1, num2) => {
+const operate = (num1, num2) => {
   num1 = a;
-  console.log(a);
   num2 = b;
-  console.log(b);
-  key = String(currentOp);
-  console.log(currentOp);
-  let result = operator[key](num1, num2);
-  return result;
+
+  let result = operators[operator](num1, num2);
+  console.log(result);
+  if (result === Infinity) {
+    botDisplay.textContent = "Oops..";
+  }
+  if (result % 1 != 0) {
+    botDisplay.textContent = parseFloat(result).toFixed(8);
+  } else botDisplay.textContent = result;
+
+  clearTopDisplay();
+  storeFirstVal();
+  clearOperator();
 };
 //positve/negative
 const posNeg = (a) => {
@@ -46,38 +52,58 @@ function storeFirstVal() {
 function storeSecondVal() {
   b = Number(botDisplay.textContent);
 }
-
+function clearOperator() {
+  operator = "";
+}
 function clearBotDisplay() {
   botDisplay.textContent = "";
+}
+function clearTopDisplay() {
+  topDisplay.textContent = "";
 }
 function clearFirstVal() {
   a = "";
 }
-//clear
-
-//delete
-
-//equals
-equalBtn.addEventListener("click", () => {
-  return operate(operator[currentOp], a, b);
-});
+function clearSecondVal() {
+  b = "";
+}
+function allClear() {
+  a = "";
+  b = "";
+  operator = "";
+  botDisplay.textContent = "";
+  topDisplay.textContent = "";
+}
 
 numBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
-    console.log(btn);
-    botDisplay.textContent += btn.value;
-    if (a !== "") {
-      storeSecondVal();
-      console.log(currentOp);
+    console.log(a, b);
+    if (botDisplay.textContent === "0") {
+      clearBotDisplay();
     }
+    botDisplay.textContent += btn.value;
+
+    storeSecondVal();
+    console.log(a, b);
   });
 });
 
 opBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
+    if (typeof a === "number" && typeof b === "number") {
+      console.log(a, b);
+      console.log(typeof a, typeof b);
+      operate();
+    }
     storeFirstVal();
     clearBotDisplay();
+    clearSecondVal();
+    console.log(a, b);
     topDisplay.textContent += a + btn.dataset.op;
-    currentOp = String(btn.dataset.op);
+    operator = btn.dataset.op;
+    console.log(operator);
   });
 });
+
+equalBtn.addEventListener("click", operate);
+clearBtn.addEventListener("click", allClear);
