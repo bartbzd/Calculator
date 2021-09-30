@@ -32,7 +32,7 @@ div.calculator {
 
 /*INTERIOR */
 #display {
-  width: 335px;
+  width: 330px;
   height: 140px;
   margin-top: 30px;
   padding-top: 20px;
@@ -48,8 +48,8 @@ div.calculator {
 #bot-display {
   padding: 0 30px;
   margin-top: 5px;
-  height: 40px;
-  font-size: 40px;
+  height: 48px;
+  font-size: 44px;
   color: #e9e7ec;
 }
 .buttons {
