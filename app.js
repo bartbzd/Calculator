@@ -3,7 +3,8 @@ const botDisplay = document.querySelector("#bot-display");
 const numBtns = document.querySelectorAll(".num-btn");
 const opBtns = document.querySelectorAll(".op-btn");
 const equalBtn = document.querySelector(".equal-btn");
-const clearBtn = document.querySelector("#clr-btn");
+const clearBtn = document.querySelector("#clear");
+const posNegBtn = document.querySelector("#pos-neg");
 
 botDisplay.textContent = "";
 topDisplay.textContent = "";
@@ -30,15 +31,17 @@ const operate = (num1, num2) => {
   if (result % 1 != 0) {
     botDisplay.textContent = parseFloat(result).toFixed(8);
   } else botDisplay.textContent = result;
-
+  a = "";
+  b = "";
+  a = result;
   clearTopDisplay();
   storeFirstVal();
   clearOperator();
 };
 //positve/negative
-const posNeg = (a) => {
-  a = ~a + 1;
-  return a;
+const posNeg = (num) => {
+  num = ~b + 1;
+  return (botDisplay.textContent = num);
 };
 //percent
 const percent = (a) => {
@@ -77,7 +80,6 @@ function allClear() {
 
 numBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
-    console.log(a, b);
     if (botDisplay.textContent === "0") {
       clearBotDisplay();
     }
@@ -107,3 +109,4 @@ opBtns.forEach((btn) => {
 
 equalBtn.addEventListener("click", operate);
 clearBtn.addEventListener("click", allClear);
+posNegBtn.addEventListener("click", posNeg);
