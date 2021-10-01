@@ -1,17 +1,37 @@
 const topDisplay = document.querySelector("#top-display");
 const botDisplay = document.querySelector("#bot-display");
-const numBtns = document.querySelectorAll(".num-btn");
-const opBtns = document.querySelectorAll(".op-btn");
+const percentBtn = document.querySelector("#percent");
+const decimalBtn = document.getElementById("decimal");
+const posNegBtn = document.querySelector("#pos-neg");
 const equalBtn = document.querySelector(".equal-btn");
 const clearBtn = document.querySelector("#clear");
-const posNegBtn = document.querySelector("#pos-neg");
+const numBtns = document.querySelectorAll(".num-btn");
+const opBtns = document.querySelectorAll(".op-btn");
 
-botDisplay.textContent = "";
-topDisplay.textContent = "";
+const storeSecondVal = () => (b = Number(botDisplay.textContent));
+const storeFirstVal = () => (a = Number(botDisplay.textContent));
+const clearBotDisplay = () => (botDisplay.textContent = "");
+const clearTopDisplay = () => (topDisplay.textContent = "");
+const clearOperator = () => (operator = "");
+const clearSecondVal = () => (b = "");
+const clearFirstVal = () => (a = "");
+const clearValues = () => ((a = ""), (b = ""));
+const allClear = () => {
+  a = "";
+  b = "";
+  operator = "";
+  botDisplay.textContent = "";
+  topDisplay.textContent = "";
+  decimal.disabled = false;
+};
 
 let a;
 let b;
 let operator;
+let equals = false;
+botDisplay.textContent = "";
+topDisplay.textContent = "";
+
 const operators = {
   "+": (a, b) => a + b,
   "-": (a, b) => a - b,
@@ -22,91 +42,75 @@ const operators = {
 const operate = (num1, num2) => {
   num1 = a;
   num2 = b;
+  equals = true;
 
   let result = operators[operator](num1, num2);
-  console.log(result);
+
   if (result === Infinity) {
-    botDisplay.textContent = "Oops..";
+    clearTopDisplay();
+    botDisplay.textContent = "Error";
   }
+
   if (result % 1 != 0) {
-    botDisplay.textContent = parseFloat(result).toFixed(8);
+    botDisplay.textContent = Number(result.toFixed(8).substring(0, 10));
   } else botDisplay.textContent = result;
-  a = "";
-  b = "";
-  a = result;
-  clearTopDisplay();
-  storeFirstVal();
+
+  clearValues();
   clearOperator();
-};
-//positve/negative
-const posNeg = (num) => {
-  num = ~b + 1;
-  return (botDisplay.textContent = num);
-};
-//percent
-const percent = (a) => {
-  a = a / 100;
-  return a;
+  clearTopDisplay();
+  a = result;
+  storeFirstVal();
 };
 
-function storeFirstVal() {
-  a = Number(botDisplay.textContent);
-}
-function storeSecondVal() {
-  b = Number(botDisplay.textContent);
-}
-function clearOperator() {
-  operator = "";
-}
-function clearBotDisplay() {
-  botDisplay.textContent = "";
-}
-function clearTopDisplay() {
-  topDisplay.textContent = "";
-}
-function clearFirstVal() {
-  a = "";
-}
-function clearSecondVal() {
-  b = "";
-}
-function allClear() {
-  a = "";
-  b = "";
-  operator = "";
-  botDisplay.textContent = "";
-  topDisplay.textContent = "";
-}
+const posNeg = () => {
+  if (botDisplay.textContent === "") return (botDisplay.textContent = "-");
 
-numBtns.forEach((btn) => {
+  const display = Number(botDisplay.textContent);
+  return (botDisplay.textContent = "-" + display);
+};
+
+const percent = () => {
+  let p = Number(botDisplay.textContent) / 100;
+  return (botDisplay.textContent = p);
+};
+
+numBtns.forEach(btn => {
   btn.addEventListener("click", () => {
+    botDisplay.textContent += btn.value;
+
+    if (botDisplay.textContent === "Error") {
+      allClear();
+    }
     if (botDisplay.textContent === "0") {
       clearBotDisplay();
     }
-    botDisplay.textContent += btn.value;
-
+    if (botDisplay.textContent.includes(".")) {
+      decimal.disabled = true;
+    }
+    if (equals === true) {
+      equals = false;
+      clearBotDisplay();
+      clearFirstVal();
+    }
     storeSecondVal();
     console.log(a, b);
   });
 });
 
-opBtns.forEach((btn) => {
+opBtns.forEach(btn => {
   btn.addEventListener("click", () => {
-    if (typeof a === "number" && typeof b === "number") {
-      console.log(a, b);
-      console.log(typeof a, typeof b);
-      operate();
-    }
+    decimal.disabled = false;
+    if (typeof a === "number" && typeof b === "number") operate();
     storeFirstVal();
     clearBotDisplay();
     clearSecondVal();
-    console.log(a, b);
     topDisplay.textContent += a + btn.dataset.op;
     operator = btn.dataset.op;
-    console.log(operator);
+    equals = false;
   });
 });
 
 equalBtn.addEventListener("click", operate);
 clearBtn.addEventListener("click", allClear);
 posNegBtn.addEventListener("click", posNeg);
+percentBtn.addEventListener("click", percent);
