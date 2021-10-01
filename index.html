@@ -17,8 +17,8 @@
     <main>
       <div class="calculator">
         <div id="display">
-          <div id="top-display">132</div>
-          <div id="bot-display">1423</div>
+          <div id="top-display"></div>
+          <div id="bot-display" maxlength="10"></div>
         </div>
 
         <div class="buttons">
@@ -39,7 +39,7 @@
           <button class="btn num-btn" value="3">3</button>
           <button class="btn op-btn" data-op="+">+</button>
           <button class="btn zero-btn num-btn" value="0">0</button>
-          <button class="btn num-btn" value=".">.</button>
+          <button class="btn num-btn" id="decimal" value=".">.</button>
           <button class="btn equal-btn" data-op="=">=</button>
         </div>
       </div>
