@@ -11,6 +11,7 @@
   --main-pal-md: #aea9d1;
   --main-pal-blue: #576faf;
   --main-pal-dk: #3f3751;
+  --main-pal-hlt: #0bc9cd; /* d90368 */
 }
 /* BODY */
 html {
@@ -112,8 +113,8 @@ div.calculator {
   background-color: var(--main-pal-lt);
 }
 .equal-btn {
-  background-color: var(--main-pal-blue);
-  color: var(--main-pal-lt);
+  background-color: var(--main-pal-hlt);
+  color: var(--main-pal-dk);
   font-size: 28px;
 }
 
