@@ -126,7 +126,7 @@ i:visited {
   text-decoration: none;
 }
 i:hover {
-  transform: scale(1.1);
+  transform: translateY(-0.15rem);
 }
 /* Media Queries */
 @media only screen and (max-height: 725px) and (min-width: 600px) {
