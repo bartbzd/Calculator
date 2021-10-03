@@ -45,6 +45,7 @@ const allClear = () => {
   topDisplay.textContent = "";
   decimalBtn.disabled = false;
 };
+
 const numInput = e => {
   if (botDisplay.textContent.includes(".")) {
     decimalBtn.disabled = true;
@@ -56,7 +57,6 @@ const numInput = e => {
   }
   botDisplay.textContent += e.target.value;
   storeSecondVal();
-  console.log(a, b);
 };
 
 const operatorInput = e => {
@@ -121,9 +121,5 @@ equalBtn.addEventListener("click", operate);
 clearBtn.addEventListener("click", allClear);
 posNegBtn.addEventListener("click", posNeg);
 percentBtn.addEventListener("click", percent);
-numBtns.forEach(btn => {
-  btn.addEventListener("click", numInput);
-});
-opBtns.forEach(btn => {
-  btn.addEventListener("click", operatorInput);
-});
+numBtns.forEach(btn => btn.addEventListener("click", numInput));
+opBtns.forEach(btn => btn.addEventListener("click", operatorInput));
