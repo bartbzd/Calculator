@@ -1,65 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-     <head>
-          <meta charset="UTF-8" />
-          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-          <meta
-               name="viewport"
-               content="width=device-width, initial-scale=1.0"
-          />
-          <link href="styles.css" rel="stylesheet" />
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-          <link
-               href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap"
-               rel="stylesheet"
-          />
-          <link
-               href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-               rel="stylesheet"
-          />
-          <title>Calculator</title>
-     </head>
-     <body>
-          <main>
-               <div class="calculator">
-                    <div id="display">
-                         <div id="top-display"></div>
-                         <div id="bot-display" maxlength="10"></div>
-                    </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="styles.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <main>
+      <div class="calculator">
+        <div id="display">
+          <div id="top-display"></div>
+          <div id="bot-display" maxlength="10"></div>
+        </div>
 
-                    <div class="buttons">
-                         <button class="btn top-btn" id="clear">AC</button>
-                         <button class="btn top-btn" id="pos-neg">+/-</button>
-                         <button class="btn top-btn" id="percent">%</button>
-                         <button class="btn op-btn" data-op="/">÷</button>
-                         <button class="btn num-btn" value="7">7</button>
-                         <button class="btn num-btn" value="8">8</button>
-                         <button class="btn num-btn" value="9">9</button>
-                         <button class="btn op-btn" data-op="×">×</button>
-                         <button class="btn num-btn" value="4">4</button>
-                         <button class="btn num-btn" value="5">5</button>
-                         <button class="btn num-btn" value="6">6</button>
-                         <button class="btn op-btn" data-op="-">-</button>
-                         <button class="btn num-btn" value="1">1</button>
-                         <button class="btn num-btn" value="2">2</button>
-                         <button class="btn num-btn" value="3">3</button>
-                         <button class="btn op-btn" data-op="+">+</button>
-                         <button class="btn zero-btn num-btn" value="0">
-                              0
-                         </button>
-                         <button class="btn num-btn" id="decimal" value=".">
-                              .
-                         </button>
-                         <button class="btn equal-btn" data-op="=">=</button>
-                    </div>
-               </div>
-          </main>
-          <footer>
-               <a href="https://github.com/bartbzd">
-                    <i class="fab fa-github fa-lg"></i>
-               </a>
-          </footer>
-          <script src="app.js"></script>
-     </body>
+        <div class="buttons">
+          <button class="btn top-btn" id="clear">AC</button>
+          <button class="btn top-btn" id="pos-neg">+/-</button>
+          <button class="btn top-btn" id="percent">%</button>
+          <button class="btn op-btn" data-op="/">÷</button>
+          <button class="btn num-btn" value="7">7</button>
+          <button class="btn num-btn" value="8">8</button>
+          <button class="btn num-btn" value="9">9</button>
+          <button class="btn op-btn" data-op="×">×</button>
+          <button class="btn num-btn" value="4">4</button>
+          <button class="btn num-btn" value="5">5</button>
+          <button class="btn num-btn" value="6">6</button>
+          <button class="btn op-btn" data-op="-">-</button>
+          <button class="btn num-btn" value="1">1</button>
+          <button class="btn num-btn" value="2">2</button>
+          <button class="btn num-btn" value="3">3</button>
+          <button class="btn op-btn" data-op="+">+</button>
+          <button class="btn zero-btn num-btn" value="0">0</button>
+          <button class="btn num-btn" id="decimal" value=".">.</button>
+          <button class="btn equal-btn" data-op="=">=</button>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <a href="https://github.com/bartbzd">
+        <i class="fab fa-github fa-lg"></i>
+      </a>
+    </footer>
+    <script src="app.js"></script>
+  </body>
 </html>
