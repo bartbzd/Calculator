@@ -2,6 +2,7 @@
   box-sizing: border-box;
   font-family: "Roboto Mono", monospace;
   font-size: 22px;
+  outline: none;
 }
 
 :root {
@@ -92,6 +93,7 @@ div.calculator {
 }
 .btn:active {
   transform: translateY(0rem);
+  transform: scale(0.95);
 }
 .zero-btn {
   width: 134px;
@@ -126,7 +128,7 @@ i:visited {
   text-decoration: none;
 }
 i:hover {
-  transform: translateY(-0.15rem);
+  transform: translateY(-0.2rem);
 }
 /* Media Queries */
 @media only screen and (max-height: 725px) and (min-width: 600px) {
