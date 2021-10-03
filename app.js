@@ -61,21 +61,18 @@ const numInput = e => {
 
 const operatorInput = e => {
   decimalBtn.disabled = false;
-
+  equals = false;
   if (typeof a === "number" && typeof b === "number") operate();
   clearError();
-
   storeFirstVal();
-
   clearBotDisplay();
-
   clearSecondVal();
-  console.log(a, b);
   operator = e.target.dataset.op;
-  topDisplay.textContent += a + operator;
-
-  equals = false;
-  console.log(a, b);
+  if (a === 0) {
+    topDisplay.textContent = topDisplay.textContent.slice(0, -1);
+    topDisplay.textContent += operator;
+    a = topDisplay.textContent.slice(0, -1);
+  } else topDisplay.textContent += a + operator;
 };
 
 const percent = () => {
