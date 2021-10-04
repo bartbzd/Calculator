@@ -76,7 +76,7 @@ const operatorInput = e => {
 };
 
 const percent = () => {
-  if (botDisplay.textContent === "Error") {
+  if (botDisplay.textContent === "Error" || botDisplay.textContent === "-") {
     return;
   }
   let p = Number(botDisplay.textContent) / 100;
