@@ -11,7 +11,7 @@
   --main-pal-md: #aea9d1;
   --main-pal-blue: #576faf;
   --main-pal-dk: #3f3751;
-  --main-pal-hlt: #0bc9cd; /* d90368 */
+  --main-pal-hlt: #d90368;
 }
 /* BODY */
 html {
@@ -45,8 +45,8 @@ div.calculator {
   width: 330px;
   background-color: var(--main-pal-dk);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15),
-    0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15),
-    0 16px 16px rgba(0, 0, 0, 0.15), 0 32px 32px rgba(0, 0, 0, 0.15);
+    0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15), 0 16px 16px rgba(0, 0, 0, 0.15),
+    0 32px 32px rgba(0, 0, 0, 0.15);
 }
 
 /*INTERIOR */
@@ -114,7 +114,7 @@ div.calculator {
 }
 .equal-btn {
   background-color: var(--main-pal-hlt);
-  color: var(--main-pal-dk);
+  color: var(--main-pal-lt);
   font-size: 28px;
 }
 
