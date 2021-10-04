@@ -8,7 +8,7 @@
 - CSS
 - JavaScript
 
-## Things I learned
+## Things I learned:
 
 - Design principles
 - Additional CSS properties
