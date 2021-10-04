@@ -81,6 +81,7 @@ const percent = () => {
   }
   let p = Number(botDisplay.textContent) / 100;
   botDisplay.textContent = Number(p.toFixed(8).substring(0, 10));
+  storeSecondVal();
 };
 
 const posNeg = () => {
@@ -95,6 +96,7 @@ const posNeg = () => {
     return (botDisplay.textContent = "-");
   }
   botDisplay.textContent = "-" + Number(display.toFixed(7).substring(0, 9));
+  storeSecondVal();
 };
 
 const operate = (num1, num2) => {
