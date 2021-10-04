@@ -10,8 +10,8 @@
 
 ## Things I learned
 
-- Modernistic design
+- Design principles
 - Additional CSS properties
-- Additional string/number methods
+- Additional JavaScript methods
 
 ### [Live Demo](https://bartbzd.github.io/Calculator/)
