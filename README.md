@@ -1,11 +1,11 @@
 # Calculator
 
-### Languages used:
+## Languages used:
 
 - HTML
 - CSS
 - JavaScript
 
-### Live Demo
+## Live Demo
 
 - [Calculator](https://bartbzd.github.io/Calculator/)
