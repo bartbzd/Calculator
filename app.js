@@ -47,13 +47,16 @@ const allClear = () => {
 };
 
 const numInput = e => {
-  if (botDisplay.textContent.includes(".")) {
+  if (e.target.value === ".") {
     decimalBtn.disabled = true;
   }
   if (equals === true) {
     equals = false;
     clearBotDisplay();
     clearFirstVal();
+  }
+  if (b > 999999999) {
+    return;
   }
   botDisplay.textContent += e.target.value;
   storeSecondVal();
@@ -104,12 +107,15 @@ const operate = (num1, num2) => {
   num2 = b;
   equals = true;
   let result = operators[operator](num1, num2);
+  console.log(typeof result);
   if (result === Infinity || result === -Infinity) {
     clearTopDisplay();
     return (botDisplay.textContent = "Error");
   }
   if (result % 1 != 0) {
     botDisplay.textContent = Number(result.toFixed(8).substring(0, 10));
+  } else if (result.toString().length > 10) {
+    botDisplay.textContent = result.toExponential(4);
   } else botDisplay.textContent = result;
   clearValues();
   clearOperator();
