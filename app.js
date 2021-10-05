@@ -107,7 +107,6 @@ const operate = (num1, num2) => {
   num2 = b;
   equals = true;
   let result = operators[operator](num1, num2);
-  console.log(typeof result);
   if (result === Infinity || result === -Infinity) {
     clearTopDisplay();
     return (botDisplay.textContent = "Error");
