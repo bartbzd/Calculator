@@ -4,7 +4,6 @@
   font-size: 22px;
   outline: none;
 }
-
 :root {
   --main-pal-top: #bcb9c2;
   --main-pal-lt: #dcd9e2;
@@ -13,15 +12,16 @@
   --main-pal-dk: #3f3751;
   --main-pal-hlt: #d90368;
 }
-/* BODY */
+
+/* ELEMENTS */
 html {
   background-color: var(--main-pal-lt);
 }
-body {
+body,
+main {
   margin: 0 auto;
 }
 main {
-  margin: 0 auto;
   width: 400px;
   padding-top: 3vh;
 }
@@ -49,7 +49,7 @@ div.calculator {
     0 32px 32px rgba(0, 0, 0, 0.15);
 }
 
-/*INTERIOR */
+/* DISPLAY */
 #display {
   width: 330px;
   height: 140px;
@@ -57,20 +57,24 @@ div.calculator {
   padding-top: 20px;
   text-align: right;
 }
-#top-display {
+#top-display,
+#bot-display {
   padding: 0 30px;
+}
+#top-display {
   height: 40px;
   font-size: 30px;
   margin-top: 15px;
   color: var(--main-pal-top);
 }
 #bot-display {
-  padding: 0 30px;
   margin-top: 5px;
   height: 48px;
   font-size: 44px;
   color: var(--main-pal-lt);
 }
+
+/* BUTTONS */
 .buttons {
   display: flex;
   flex-wrap: wrap;
@@ -119,6 +123,7 @@ div.calculator {
   font-size: 28px;
 }
 
+/* FOOTER */
 i {
   margin: 0 10px;
   color: black;
@@ -132,7 +137,8 @@ i:visited {
 i:hover {
   transform: translateY(-0.2rem);
 }
-/* Media Queries */
+
+/* MEDIA QUERIES */
 @media only screen and (max-height: 725px) and (min-width: 600px) {
   footer {
     display: none;
