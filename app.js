@@ -65,7 +65,7 @@ const numInput = e => {
 const operatorInput = e => {
   decimalBtn.disabled = false;
   equals = false;
-  if (botDisplay.textContent === "-") return;
+  if (botDisplay.textContent === "-" || botDisplay.textContent === "") return;
   if (typeof a === "number" && typeof b === "number") operate();
   clearError();
   storeFirstVal();
