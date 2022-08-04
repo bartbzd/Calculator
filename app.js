@@ -29,7 +29,7 @@ const clearTopDisplay = () => (topDisplay.textContent = "");
 const clearValues = () => ((a = ""), (b = ""));
 const clearOperator = () => (operator = "");
 const clearSecondVal = () => (b = "");
-const clearFirstVal = () => (a = "");
+const clearFirstVal = () => (a = ""); 
 
 const clearError = () => {
   if (botDisplay.textContent === "Error") {
