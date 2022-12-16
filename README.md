@@ -1,6 +1,8 @@
 # Calculator
 
-- Calculator application with basic functionality
+![app-picture](https://github.com/bartbzd/calculator/blob/main/img/calculator.png)
+
+### [Live Demo](https://bartbzd.github.io/calculator/)
 
 ## Languages used:
 
@@ -14,4 +16,4 @@
 - Additional CSS properties
 - Additional JavaScript methods
 
-### [Live Demo](https://bartbzd.github.io/Calculator/)
+
